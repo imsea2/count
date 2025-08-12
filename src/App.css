@@ -22,6 +22,20 @@
   padding: 36px;
 }
 
+.card .pet,
+.card .infoRow,
+.card .barWrap,
+.card .row,
+.card .tip {
+  width: 100%;
+  max-width: 720px;          /* 본문 최대 폭(취향대로 640~800px) */
+  margin-inline: auto;       /* 가로 가운데 */
+}
+
+/* 펫 영역은 이미 가로 100%라 OK, 필요하면 */
+.pet { aspect-ratio: 16/9; } /* 모바일은 1/1로 미디어쿼리에서 변경 */
+
+
 .title {
 margin-bottom: 16px;}
 .desc  { opacity: .7; margin-bottom: 24px; 
@@ -99,6 +113,23 @@ line-height: 160%;}
   transition: width 160ms ease;
 }
 
+/* infoRow 전체 두께를 한 번에 통일 */
+.infoRow { 
+    font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;                 /* 두 묶음(카운트/단계) 사이 간격 */
+  font-weight: 400;
+ }          /* 원하는 두께(400~700)로 바꿔도 OK */
+/* strong이 있더라도 추가로 더 굵어지지 않게 */
+.infoRow strong { font-weight: inherit; }
+
+.countNum{ margin-left: -10px; }          /* '카운트:' → 숫자 간 간격 */
+.stage strong{ margin-left: 14px; }      /* '단계:' → 단계명 간 간격 */
+
+
+
 /* 버튼들 */
 .row {
   display: flex;
@@ -110,7 +141,7 @@ line-height: 160%;}
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  background: #ffd43b;
+  background: #fce174;
   font-size: 18px;
 }
 
@@ -149,10 +180,11 @@ line-height: 160%;}
 
 /* 팁 */
 .tip {
-  font-size: 12px;
+  font-size: 14px;
   opacity: .7;
-  margin-top: 10px;
+  margin-top: 20px;
   text-align: center;
+  color: #616161;
 }
 
 /* 화면 전체 딤 오버레이 */

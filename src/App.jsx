@@ -38,10 +38,10 @@ export default function App() {
 
     const percent = Math.min(100, current);
     const stage =
-        percent < 25 ? "🥚 콩알" :
-            percent < 50 ? "🐣 아기" :
-                percent < 75 ? "🐥 어린이" :
-                    "🐓 어른";
+        percent < 25 ? "콩알 🥚" :
+            percent < 50 ? "아기 🐣" :
+                percent < 75 ? "어린이 🐥" :
+                    "어른 🐓";
 
     // ✅ 공통: n만큼 먹이 주기 (0~100 사이로 고정)
     const feedBy = (n) => {
@@ -135,9 +135,9 @@ export default function App() {
                 </div>
 
                 <div className="infoRow">
-                    <strong>카운트:</strong>
+                    <strong>카운트 :</strong>
                     <span className="countNum">{current}</span>
-                    <span className="stage">단계:<strong>{stage}</strong></span>
+                    <span className="stage">단계 :<strong>{stage}</strong></span>
                 </div>
 
                 <div className="barWrap" aria-label={`성장도 ${percent}%`}>
@@ -151,7 +151,7 @@ export default function App() {
                 </div>
 
 
-                <p className="tip">Tip: 탭을 바꿔도 각 펫 카운트는 따로 저장돼요!</p>
+                <p className="tip">Tip: 탭을 바꿔도 각 펫 카운트는 따로 저장됩니다.</p>
             </div>
 
             {/* 100 달성 팝업 */}
