@@ -1,0 +1,17 @@
+/* ✅ 화면 전체 리셋 + 배경을 body에 */
+html, body, #root { min-height: 100%; }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: #f6f7fb;   /* 회색 배경을 "전체 화면"에 적용 */
+}
+
+/* ✅ Vite 템플릿 기본값 초기화 (왼쪽 붙는 원인) */
+#root {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: initial;       /* 안에 있는 .app을 가운데 두기 쉽게 */
+}
+
+/* 참고: 버튼 등 Vite 기본 스타일이 남아 있으면 필요에 따라 지워도 OK */
