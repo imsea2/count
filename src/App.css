@@ -1,6 +1,6 @@
 /* 화면 전체 컨테이너 */
 .app {
-  min-height: 100dvh;
+    height: 100dvh;
   width: 100%;
   display: flex;
   align-items: center;
@@ -8,6 +8,7 @@
   background: #f6f7fb;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
   padding: 16px;
+  overflow: hidden;
 }
 
 /* 카드 */
@@ -112,7 +113,39 @@ line-height: 160%;}
   background: #ffd43b;
   font-size: 18px;
 }
-.btn.reset { background: #e9ecef; }
+
+/* 공통 버튼은 그대로 사용 (.btn) */
+
+/* +1: 노란색 */
+.btn--plus1 {
+  background: #ffd43b;
+  color: #222;
+}
+.btn--plus1:hover { background: #fcc419; }
+.btn--plus1:active { transform: translateY(1px); }
+
+/* +10: 파란색 */
+.btn--plus10 {
+  background: #ff7c8d;
+  color: #fff;
+}
+.btn--plus10:hover { background: #ff7083; }
+.btn--plus10:active { transform: translateY(1px); }
+
+/* RESET: 회색 */
+.btn--reset {
+  background: #e9ecef;
+  color: #222;
+}
+.btn--reset:hover { background: #dee2e6; }
+.btn--reset:active { transform: translateY(1px); }
+
+/* 포커스 가시성 (키보드 접근성) */
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(116,192,252,.5);
+}
+
 
 /* 팁 */
 .tip {
@@ -120,4 +153,49 @@ line-height: 160%;}
   opacity: .7;
   margin-top: 10px;
   text-align: center;
+}
+
+/* 화면 전체 딤 오버레이 */
+.overlay{
+  position: fixed;      /* 화면에 고정 */
+  inset: 0;             /* top/right/bottom/left 모두 0 */
+  background: rgba(0,0,0,.45); /* 반투명 딤 */
+  display: flex;        /* 가운데 정렬 */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;        /* 카드보다 위로 */
+  padding: 16px;        /* 가장자리 여백 */
+}
+
+/* 팝업 카드 */
+.modal{
+  width: min(520px, 92vw);
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.25);
+  padding: 32px;
+  text-align: center;
+}
+
+/* 팝업 이미지 */
+.modal-img{
+  width: 100%;
+  aspect-ratio: 3 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.modal-title{ margin: 4px 0 12px; }
+.modal-desc { margin: 0 0 20px; opacity: .8; }
+
+/* (선택) 팝업 열렸을 때 스크롤 잠그기 */
+body.modal-open{ overflow: hidden; }
+
+.modal-desc { 
+  margin: 0 0 12px; 
+  opacity: .8; 
+  white-space: pre-line; 
+  line-height: 160%;   /* ← \n 을 실제 줄바꿈으로 표시 */
 }

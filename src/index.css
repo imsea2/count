@@ -1,9 +1,10 @@
 /* ✅ 화면 전체 리셋 + 배경을 body에 */
-html, body, #root { min-height: 100%; }
+html, body, #root { height: 100%; }
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  background: #f6f7fb;   /* 회색 배경을 "전체 화면"에 적용 */
+  background: #f6f7fb; 
+  overflow: hidden;  /* 회색 배경을 "전체 화면"에 적용 */
 }
 
 /* ✅ Vite 템플릿 기본값 초기화 (왼쪽 붙는 원인) */
