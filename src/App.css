@@ -199,3 +199,39 @@ body.modal-open{ overflow: hidden; }
   white-space: pre-line; 
   line-height: 160%;   /* ← \n 을 실제 줄바꿈으로 표시 */
 }
+
+/* 기본 컨테이너는 이미 있음: .app { height:100dvh; width:100%; ... } */
+
+/* 태블릿 이하 */
+@media (max-width: 768px) {
+  .card { width: min(640px, 96vw); padding: 14px; }
+  .title { font-size: clamp(22px, 6vw, 28px); }
+  .desc  { font-size: clamp(12px, 3.6vw, 14px); }
+
+  .tabs { gap: 6px; }
+  .tabBtn { padding: 6px 10px; }
+
+  /* 펫 영역: 가로형 → 정사각형으로 바꿔서 세로가 너무 길어지지 않게 */
+  .pet { aspect-ratio: 1 / 1; padding: 12px; }
+
+  .infoRow { font-size: 14px; }
+  .barWrap { height: 8px; }
+
+  /* 버튼이 좁아서 줄 바꿈 되도록 */
+  .row { flex-wrap: wrap; gap: 6px; }
+  .btn { flex: 1 1 45%; min-height: 40px; }
+}
+
+/* 작은 모바일 */
+@media (max-width: 420px) {
+  /* 카드가 화면에 꽉 차게, 라운드는 유지/취향대로 */
+  .card { width: 100vw; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+
+  /* 탭: 2열로 깔끔하게 배치 */
+  .tabs { justify-content: space-between; }
+  .tabBtn { flex: 1 1 calc(50% - 6px); justify-content: center; }
+
+  /* 팝업(모달)도 모바일 최적화 */
+  .modal { width: min(420px, 94vw); padding: 14px; }
+  .modal-img { aspect-ratio: 1 / 1; }
+}
